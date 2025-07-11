@@ -1,4 +1,5 @@
 import random
+
 cards = {
     "Ace": [1,11],
     "3": 3,
@@ -13,62 +14,81 @@ cards = {
     "Queen": 10,
     "King": 10
 }
-def get_card_value(card):
-    if card == "Ace":
-        return random.choice([1, 11])
-    else:
-        return cards[card]
 
-a = input("Do you want to play black jack(Y/N):").lower()
-n = ""
-while(n != "n"): 
-    if(a == "y"):
-        my_card = []
-        com_card = []
+def calculate_hand_value(hand):
+    total = 0
+    ace_count = 0
+    for card in hand:
+        if card == "Ace":
+            ace_count += 1
+        else:
+            total += cards[card]
+    for _ in range(ace_count):
+        if total + 11 <= 21:
+            total += 11
+        else:
+            total += 1
+    return total
 
-        # random choice for the user
+a = input("Do you want to play black jack(Y/N): ").lower()
+z = "y"
+
+while(z != "n"):
+    my_card = []
+    com_card = []
+    # random choice for the user
+    if(z == "y"):
         x = random.choice(list(cards.keys()))
         y = random.choice(list(cards.keys()))
         my_card.extend([x,y])
-        nosum = get_card_value(x) + get_card_value(y)
+        # Use calculate_hand_value instead of get_card_value sum as I can do both in the function() i.e Ace
+        # and the normal card
+        nosum = calculate_hand_value(my_card)
         print("Your cards: "+f"[{x} , {y}]"+f",  current score: {nosum}")
 
         #random choice for the computer
         com1 = random.choice(list(cards.keys()))
-        com2 = random.choice(list(cards.keys()))
-        com_card.extend([com1,com2])
-        comsum = get_card_value(com1) + get_card_value(com2)
+        com_card.extend([com1])
+        comsum = calculate_hand_value(com_card)
         print(f"Computer's first card: {com_card[0]}")
 
-        #checking starts
-        check = input("Type 'y' to get another card, type 'n' to pass: ").lower()
-        if(check != y):
-            z = random.choice(list(cards.keys()))
-            my_card.extend([z])
-            nosum = nosum + get_card_value(z)
-            if(nosum <= 21):
-                print(f"Your  hand is {my_card},current score = {nosum}")
-                print(f"Computer  hand is {com_card},current score = {comsum}")
+        while nosum < 21 and comsum < 21: 
+            if(a == "y"):
+                #checking starts
+                check = input("Type 'y' to get another card, type 'n' to pass: ").lower()
+                if(check == "y"):
+                    z = random.choice(list(cards.keys()))
+                    my_card.extend([z])
+                    # again calculate total hand value
+                    nosum = calculate_hand_value(my_card)
+                    if(nosum < 21):
+                        print(f"Your  hand is {my_card},current score = {nosum}")
+                        print(f"Computer  hand is {com_card},current score = {comsum}")
+                    elif(nosum == 21):
+                        print(f"Your  hand is {my_card},current score = {nosum}")
+                        print(f"Computer  hand is {com_card},current score = {comsum}")
+                        print("You won")
 
-            else:
-                print(f"Your final hand is {my_card},final score = {nosum}")
-                print(f"Computer  hand is {com_card},final score = {comsum}")
-                print("You lose")
+                    else:
+                        print(f"Your final hand is {my_card},final score = {nosum}")
+                        print(f"Computer  hand is {com_card},final score = {comsum}")
+                        print("You lose")
 
-        else:
-                computer = random.choice(list(cards.keys()))
-                com_card.extend([computer])
-                comsum = comsum + get_card_value(computer)
-                while(comsum >= 21):
-                    if(comsum < 21):
+                else:
+                    computer = random.choice(list(cards.keys()))
+                    com_card.extend([computer])
+                    comsum = calculate_hand_value(com_card)
+                    while comsum < 21:
                         computer = random.choice(list(cards.keys()))
                         com_card.extend([computer])
-                        comsum = comsum + get_card_value(computer)
-                
-                print(f"Your final hand is {my_card},final score = {nosum}")
-                print(f"Computer  hand is {com_card},final score = {comsum}")
-                if(comsum == 21):
-                    print("The computer won.")
-    n = input("Do you want to continue for the next round(Y/N): ").lower()
+                        comsum = calculate_hand_value(com_card)
 
-    
+                    print(f"Your final hand is {my_card},final score = {nosum}")
+                    print(f"Computer  hand is {com_card},final score = {comsum}")
+                    if(comsum == 21):
+                        print("You lose")
+                    else:
+                        print("You won")
+
+    print("\n")    
+    z = input("Do you want to continue for the next round(Y/N): ").lower()
