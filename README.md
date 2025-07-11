@@ -30,9 +30,9 @@ Play against the computer directly in your terminal or online!
 
 ## 🚀 Run This Game Online:
 
-No installation required! Try it online here:
+Try the game instantly in your browser — no setup needed!
 
-[![Run on Replit](https://replit.com/badge/github/iankitsubedi/Black-Jack)](https://replit.com/github/iankitsubedi/Black-Jack)
+[![Run on Replit](https://replit.com/badge/github/iankitsubedi/Black-Jack)](https://replit.com/@Chill-TimeTime/IndeliblePertinentInformationtechnology)
 
 ---
 
