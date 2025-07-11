@@ -1,65 +1,44 @@
 # 🃏 Simple Blackjack Game (Python)
 
-This is a simple text-based Blackjack game written in Python.  
-It allows you to play against the computer with basic Blackjack rules.
+This is a simple, text-based Blackjack game written in Python.  
+Play against the computer directly in your terminal or online!
 
 ---
 
-## 🎮 Features
-
-- Draw random cards from a deck.
-- Ace card automatically counts as **11** if it doesn't bust your hand, otherwise as **1**.
+## 🎮 Game Features:
+- Random card draws.
+- Automatic Ace handling: counts as **11** unless it would bust, then counts as **1**.
 - Player can:
-  - Hit (draw a new card).
-  - Pass (stand and end turn).
-- Computer draws cards automatically after player passes.
-- Score comparison at the end to determine the winner.
+  - Hit (draw another card)
+  - Pass (end their turn)
+- Computer (dealer) draws cards automatically after player stands.
+- Score comparison at the end to determine winner.
 - Option to play multiple rounds.
 
 ---
 
-## 📋 How To Play
-
-1. Run the program.
-2. You will receive two random cards.
-3. Decide whether to:
-   - `'y'` → Hit (get another card)
-   - `'n'` → Pass (end your turn)
+## 📋 How To Play:
+1. Run the game.
+2. You'll receive two random cards.
+3. You can:
+   - Type `'y'` to get another card.
+   - Type `'n'` to pass your turn.
 4. The computer will then draw cards.
-5. Whoever gets closer to 21 without going over wins!
+5. The highest score under or equal to 21 wins.
 
 ---
 
-## 💡 Rules:
-- Face cards (Jack, Queen, King) are worth 10.
-- Ace counts as **11** unless it would cause you to bust (then it counts as 1).
-- If you or the computer hits exactly 21, it's an automatic win for that hand.
-- If both stand, higher score wins. Tie if both have the same score.
-- Dealer draws cards until their total is at least 21.
+## 🚀 Run This Game Online:
+
+No installation required! Try it online here:
+
+[![Run on Replit](https://replit.com/badge/github/iankitsubedi/Black-Jack)](https://replit.com/github/iankitsubedi/Black-Jack)
 
 ---
 
-## 🛠️ Requirements
+## 🛠️ Run Locally:
 
-- Python 3.x (no external libraries needed — uses `random` module).
-
----
-
-## 📂 Files
-
-- `blackjack.py` → Main game script.
-
----
-
-## ✅ Notes
-
-- This project is for fun and learning purposes.
-- The game runs in the terminal/command prompt.
-- You can customize or improve it further if you'd like!
-
----
-
-## 🚀 How To Run
-
+1. Make sure Python 3 is installed on your machine.
+2. Clone this repository:
 ```bash
-python blackjack.py
+git clone https://github.com/iankitsubedi/Black-Jack.git
