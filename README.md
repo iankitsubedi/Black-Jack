@@ -28,14 +28,6 @@ Play against the computer directly in your terminal or online!
 
 ---
 
-## 🚀 Run This Game Online:
-
-Try the game instantly in your browser — no setup needed!
-
-[![Run on Replit](https://replit.com/badge/github/iankitsubedi/Black-Jack)](https://replit.com/@Chill-TimeTime/IndeliblePertinentInformationtechnology)
-
----
-
 ## 🛠️ Run Locally:
 
 1. Make sure Python 3 is installed on your machine.
